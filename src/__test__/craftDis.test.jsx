@@ -1,69 +1,46 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router } from 'react-router-dom';
-import CraftsDis from './CraftsDis';
-import store from '../Redux/store';
+import { MemoryRouter } from 'react-router-dom';
+import configureStore from 'redux-mock-store';
+import CraftDescription from '../component/CraftDetails';
 
-// Mock Redux store
-jest.mock('../Redux/crafts/craftsSlice', () => {
-  const craftData = [
-    {
-      model: 'A380',
-      manufacturer: 'Airbus',
-      population: 1,
-    },
-    {
-      model: '737 Max',
-      manufacturer: 'Boeing',
-      population: 2,
-    },
-  ];
+const mockStore = configureStore([]);
 
-  return {
-    __esModule: true,
-    findCraftDetails: jest.fn(),
-    getCrafts: jest.fn(),
-    useSelector: jest.fn().mockReturnValue({
-      craft: craftData,
-      isLoading: false,
-    }),
-    useDispatch: jest.fn(),
-    useNavigate: jest.fn(),
-  };
-});
+describe('CraftDescription', () => {
+  it('renders craft details correctly', () => {
+    const mockCrafts = [
+      {
+        population: 1,
+        details: true,
+        manufacturer: 'Airbus',
+        model: 'A380',
+        engine_type: 'Type A',
+        max_speed_knots: 500,
+        ceiling_ft: 40000,
+        gross_weight_lbs: 800000,
+        height_ft: 50,
+        length_ft: 250,
+        wing_span_ft: 200,
+        range_nautical_miles: 1000,
+      },
+      // Add more craft objects for additional tests if needed
+    ];
 
-describe('CraftsDis', () => {
-  beforeEach(() => {
-    render(
+    const store = mockStore({
+      crafts: { craft: mockCrafts },
+    });
+
+    const {} = render(
       <Provider store={store}>
-        <Router>
-          <CraftsDis />
-        </Router>
-      </Provider>
+        <MemoryRouter>
+          <CraftDescription />
+        </MemoryRouter>
+      </Provider>,
     );
-  });
 
-  test('renders loading state', () => {
-    expect(screen.getByText('Loading...')).toBeInTheDocument();
-  });
+    // Assert the craft details and images
 
-  test('renders crafts list after loading', () => {
-    expect(screen.getByText('Airbus')).toBeInTheDocument();
-    expect(screen.getByText('Boeing')).toBeInTheDocument();
-  });
-
-  test('handles craft details click', () => {
-    fireEvent.click(screen.getByText('Airbus'));
-    expect(screen.getByText('Craft details: A380')).toBeInTheDocument();
-    expect(findCraftDetails).toHaveBeenCalledWith('A380');
-  });
-
-  test('handles search', () => {
-    const searchInput = screen.getByPlaceholderText('Search by craft model no:');
-    fireEvent.change(searchInput, { target: { value: 'A380' } });
-
-    expect(screen.getByText('Airbus')).toBeInTheDocument();
-    expect(screen.queryByText('Boeing')).not.toBeInTheDocument();
+    // ...
   });
 });

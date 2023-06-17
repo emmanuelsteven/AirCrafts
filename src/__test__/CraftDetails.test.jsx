@@ -31,13 +31,13 @@ describe('CraftDescription', () => {
       crafts: { craft: mockCrafts },
     });
 
-    const { getByText, getByAltText } = render(
-        <Provider store={store}>
-          <MemoryRouter>
-            <CraftDescription />
-          </MemoryRouter>
-        </Provider>
-      );
+    const {} = render(
+      <Provider store={store}>
+        <MemoryRouter>
+          <CraftDescription />
+        </MemoryRouter>
+      </Provider>,
+    );
 
     // Assert the craft details and images
 

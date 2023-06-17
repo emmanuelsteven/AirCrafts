@@ -14,7 +14,7 @@
 }
 
 .logo-cont h2 {
-font-variant: small-caps;
+  font-variant: small-caps;
   font-size: 2rem;
 }
 
@@ -29,9 +29,8 @@ font-variant: small-caps;
   width: 20px;
 }
 
-.icons
-svg {
-  margin-left: 20rem; 
+.icons svg {
+  margin-left: 20rem;
 }
 
 .crafts-container {
@@ -102,7 +101,7 @@ svg {
 }
 
 .arrow-icon {
-  color:white;
+  color: white;
   width: 30px;
   height: 30px;
   border: 2px solid white;
@@ -128,14 +127,14 @@ svg {
   text-transform: uppercase;
   font-weight: 900;
   font-size: 40px;
-  opacity: .5;
+  opacity: 0.5;
 }
 
 .craft-model {
   text-transform: uppercase;
   font-size: 1rem;
   font-weight: 300;
-  padding-bottom: .6rem;
+  padding-bottom: 0.6rem;
 }
 
 /* Responsive Styles */
@@ -184,7 +183,8 @@ svg {
   .craft-model {
     font-size: 12px;
   }
-}
-.search-icon-container {
-width: -1px;
+
+  .search-icon-container {
+    width: -1px;
+  }
 }

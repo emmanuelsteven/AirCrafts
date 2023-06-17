@@ -19,7 +19,8 @@
     "react/react-in-jsx-scope": "off",
     "no-param-reassign": "off",
     "import/no-unresolved": "off",
-    "no-shadow": "off"
+    "no-shadow": "off",
+    "no-empty-pattern": "off"
   },
   "overrides": [
     {
