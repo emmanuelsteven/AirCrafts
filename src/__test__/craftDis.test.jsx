@@ -1,61 +1,69 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import { MemoryRouter } from 'react-router-dom';
-import configureStore from 'redux-mock-store';
+import { BrowserRouter as Router } from 'react-router-dom';
 import CraftsDis from './CraftsDis';
+import store from '../Redux/store';
 
-const mockStore = configureStore([]);
-const initialState = {
-  crafts: {
-    craft: [
-      {
-        model: 'Craft Model 1',
-        manufacturer: 'Craft Manufacturer 1',
-      },
-      {
-        model: 'Craft Model 2',
-        manufacturer: 'Craft Manufacturer 2',
-      },
-    ],
-    isLoading: false,
-  },
-};
-const store = mockStore(initialState);
+// Mock Redux store
+jest.mock('../Redux/crafts/craftsSlice', () => {
+  const craftData = [
+    {
+      model: 'A380',
+      manufacturer: 'Airbus',
+      population: 1,
+    },
+    {
+      model: '737 Max',
+      manufacturer: 'Boeing',
+      population: 2,
+    },
+  ];
+
+  return {
+    __esModule: true,
+    findCraftDetails: jest.fn(),
+    getCrafts: jest.fn(),
+    useSelector: jest.fn().mockReturnValue({
+      craft: craftData,
+      isLoading: false,
+    }),
+    useDispatch: jest.fn(),
+    useNavigate: jest.fn(),
+  };
+});
+
 describe('CraftsDis', () => {
   beforeEach(() => {
     render(
       <Provider store={store}>
-        <MemoryRouter>
+        <Router>
           <CraftsDis />
-        </MemoryRouter>
-      </Provider>,
+        </Router>
+      </Provider>
     );
   });
 
-  it('should render loading text when isLoading is true', () => {
-    const loadingText = screen.getByText('Loading...');
-    expect(loadingText).toBeInTheDocument();
+  test('renders loading state', () => {
+    expect(screen.getByText('Loading...')).toBeInTheDocument();
   });
 
-  it('should render craft items when isLoading is false', () => {
-    const craftHeaders = screen.getAllByTestId('craft-header');
-    expect(craftHeaders).toHaveLength(2);
-    expect(craftHeaders[0]).toHaveTextContent('Craft Manufacturer 1');
-    expect(craftHeaders[1]).toHaveTextContent('Craft Manufacturer 2');
+  test('renders crafts list after loading', () => {
+    expect(screen.getByText('Airbus')).toBeInTheDocument();
+    expect(screen.getByText('Boeing')).toBeInTheDocument();
   });
 
-  it('should navigate to craft details on craft button click', () => {
-    const craftButton = screen.getAllByRole('button', { name: 'craft-lists' })[0];
-    fireEvent.click(craftButton);
-    // Add your assertions for the navigation logic here
+  test('handles craft details click', () => {
+    fireEvent.click(screen.getByText('Airbus'));
+    expect(screen.getByText('Craft details: A380')).toBeInTheDocument();
+    expect(findCraftDetails).toHaveBeenCalledWith('A380');
   });
 
-  it('should filter crafts based on search input', () => {
+  test('handles search', () => {
     const searchInput = screen.getByPlaceholderText('Search by craft model no:');
-    fireEvent.change(searchInput, { target: { value: 'Model 1' } });
-    const filteredCraftHeaders = screen.getAllByTestId('craft-header');
-    expect(filteredCraftHeaders).toHaveLength(1);
-    expect(filteredCraftHeaders[0]).toHaveTextContent('Craft Manufacturer 1');
+    fireEvent.change(searchInput, { target: { value: 'A380' } });
+
+    expect(screen.getByText('Airbus')).toBeInTheDocument();
+    expect(screen.queryByText('Boeing')).not.toBeInTheDocument();
   });
 });

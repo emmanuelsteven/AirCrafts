@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
+// import axios from 'axios';
 
 const initialState = {
   craft: [],
@@ -12,17 +12,29 @@ const apikey = {
     'Content-Type': 'application/json',
   },
 };
+
 const url = 'https://api.api-ninjas.com/v1/aircraft?engine_type=jet&limit=20';
+
 export const getCrafts = createAsyncThunk('crafts/getCrafts', async () => {
   try {
-    const response = await axios.get(url, apikey);
-    return response.data.map((craft) => ({
+    const response = await fetch(url, {
+      headers: apikey.headers,
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to get craft');
+    }
+
+    const data = await response.json();
+
+    return data.map((craft) => ({
       ...craft,
     }));
   } catch (error) {
-    throw new Error('failed to get craft');
+    throw new Error('Failed to get craft');
   }
 });
+
 const craftSlice = createSlice({
   name: 'crafts',
   initialState,
