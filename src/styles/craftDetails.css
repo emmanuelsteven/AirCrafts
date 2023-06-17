@@ -1,0 +1,78 @@
+.Detail-container {
+    max-width: 100%;
+    padding: 2rem 0;    
+  }
+  
+  .B-arrow{
+    padding: 0 0 3rem 4rem;
+  }
+  .Bb-arrow{
+    color: black;
+    padding: 0 0 0 1rem;
+  }
+  .arow-icon {
+    color:black;
+    width: 15px;
+    height: 15px;
+    border: 2px solid black;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .chevy{
+    color:#fff;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    font-weight: 900;
+    margin: 2rem 0 0 0.2rem;
+  }
+  
+  .craft-list{
+  
+    font-family: "Barlow", sans-serif;
+    padding: 0 4rem 4rem 4rem;
+    color: black;
+   
+  }
+  .crafty{
+    max-width: 100%;
+    height: 50vh;
+    margin-bottom: 1rem;
+  }
+  
+  ul.craft-tab {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  li.craftD-model {
+    display: flex;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    border-radius: 1.2rem;
+    background-color: gray;
+    justify-content: space-between;
+  }
+  
+  .craft-dis {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-right: 5px;
+  }
+  
+  .craft-API {
+    font-size: 1.2rem;
+    font-weight: 500;
+    font-style: italic;
+    margin-right: 1rem;
+  }
+  
+  .craft-dish {
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  
+  

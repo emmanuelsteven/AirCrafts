@@ -4,7 +4,9 @@ import '../styles/craft.css';
 const Navbar = () => (
   <div className="navbar-container">
     <div className="logo-cont">
-      <h2>Aircrafts</h2>
+      <div>
+        <h2>Aircrafts </h2>
+      </div>
       <div className="icon-set">
         <svg
           xmlns="http://www.w3.org/2000/svg"

@@ -37,7 +37,7 @@ export const BackArrow = () => {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 20 20"
       fill="currentColor"
-      className="w-5 h-5 arrow-icon"
+      className="w-5 h-5 arow-icon"
       onClick={() => navigate('/')}
     >
       <path
@@ -45,6 +45,24 @@ export const BackArrow = () => {
         d="M15 10a.75.75 0 01-.75.75H7.612l2.158 1.96a.75.75 0 11-1.04 1.08l-3.5-3.25a.75.75 0 010-1.08l3.5-3.25a.75.75 0 111.04 1.08L7.612 9.25h6.638A.75.75 0 0115 10z"
         clipRule="evenodd"
       />
+    </svg>
+
+  );
+};
+export const ChevronL = () => {
+  const navigate = useNavigate();
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth="1.5"
+      stroke="currentColor"
+      className="w-6 h-6 chevy"
+      onClick={() => navigate('/')}
+    >
+
+      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
     </svg>
   );
 };
