@@ -3,7 +3,6 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import CraftsDis from '../component/craftsDis';
-import { getCrafts, findCraftDetails } from '../Redux/crafts/craftsSlice';
 import '@testing-library/jest-dom/extend-expect';
 
 jest.mock('react-redux');

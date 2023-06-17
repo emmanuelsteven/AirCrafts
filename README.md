@@ -1,10 +1,8 @@
 <a name="readme-top"></a>
 
-<div align="center">
-  <img src="src/assets/LinkedIn Cover Main.jpg" alt="logo" width="100%"  height="auto" />
-  <br/>
 
-  <h3><b>iHireAnywhere</b></h3>
+
+  <h3><b>AirCrafts</b></h3>
 
 </div>
 
@@ -33,7 +31,7 @@
 
 # 📖 iHireAnywhere<a name="about-project"></a>
 
-**iHireAnywhere** is a web application that allows users to browse and source for Aircraft specifications  from various manufacturers . It uses React for the front-end, Redux for the state management, and Axios for fetching data from an external API. The application consists of three main components: craftDetails, craftDis, and Navigation. craftis displays a list of available aircrafts with their specification. craftDetails shows more information about a selected aircraft, such as the manufacturer's name ,engine description, speed etc. Navigation provides a header with the current year and the text of the current page. Users can navigate between the pages using buttons with arrow icons.
+**Aircrafts** is a web application that allows users to browse and source for Aircraft specifications  from various manufacturers . It uses React for the front-end, Redux for the state management, and Axios for fetching data from an external API. The application consists of three main components: craftDetails, craftDis, and Navigation. craftis displays a list of available aircrafts with their specification. craftDetails shows more information about a selected aircraft, such as the manufacturer's name ,engine description, speed etc. Navigation provides a header with the current year and the text of the current page. Users can navigate between the pages using buttons with arrow icons.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -142,7 +140,7 @@ You can deploy this project using:
 
 ## 👥 Authors <a name="authors"></a>
 
-👤 **Collins Bawa**
+👤 **Emmanuel steven**
 
 - GitHub: [@emmanuelsteven](https://github.com/emmanuelsteven)
 

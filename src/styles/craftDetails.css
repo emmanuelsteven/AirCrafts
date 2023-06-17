@@ -1,6 +1,6 @@
 .Detail-container {
   max-width: 100%;
-  padding: 2rem 0;
+  padding-bottom: 2rem;
 }
 
 .B-arrow {
@@ -51,7 +51,7 @@ ul.craft-tab {
 li.craftD-model {
   display: flex;
   margin-bottom: 10px;
-  padding-left: 10px;
+  padding: 1rem;
   border-radius: 1.2rem;
   background-color: gray;
   justify-content: space-between;
@@ -79,5 +79,9 @@ li.craftD-model {
 @media only screen and (max-width: 480px) {
   .chevy {
     margin-left: -3rem;
+  }
+
+  .craft-dis {
+    font-size: 1rem;
   }
 }
