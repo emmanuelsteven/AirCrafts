@@ -1,70 +1,185 @@
-# Getting Started with Create React App
+<a name="readme-top"></a>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<div align="center">
+  <img src="src/assets/LinkedIn Cover Main.jpg" alt="logo" width="100%"  height="auto" />
+  <br/>
 
-## Available Scripts
+  <h3><b>iHireAnywhere</b></h3>
 
-In the project directory, you can run:
+</div>
 
-### `npm start`
+# 📗 Table of Contents
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- [📖 About the Project](#about-project)
+  - [🛠 Built With](#built-with)
+    - [Tech Stack](#tech-stack)
+    - [Key Features](#key-features)
+  - [🚀 Documentation](#docs)
+  - [🚀 Live Demo](#live-demo)
+- [💻 Getting Started](#getting-started)
+  - [Setup](#setup)
+  - [Prerequisites](#prerequisites)
+  - [Install](#install)
+  - [Usage](#usage)
+  - [Run tests](#run-tests)
+  - [Deployment](#triangular_flag_on_post-deployment)
+- [👥 Authors](#authors)
+- [🔭 Future Features](#future-features)
+- [🤝 Contributing](#contributing)
+- [⭐️ Show your support](#support)
+- [🙏 Acknowledgements](#acknowledgements)
+- [📝 License](#license)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+# 📖 iHireAnywhere<a name="about-project"></a>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**iHireAnywhere** is a web application that allows users to browse and source for Aircraft specifications  from various manufacturers . It uses React for the front-end, Redux for the state management, and Axios for fetching data from an external API. The application consists of three main components: craftDetails, craftDis, and Navigation. craftis displays a list of available aircrafts with their specification. craftDetails shows more information about a selected aircraft, such as the manufacturer's name ,engine description, speed etc. Navigation provides a header with the current year and the text of the current page. Users can navigate between the pages using buttons with arrow icons.
 
-### `npm run build`
+## 🛠 Built With <a name="built-with"></a>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Tech Stack <a name="tech-stack"></a>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<details>
+  <summary>Client</summary>
+  <ul>
+    <li><a href="https://reactjs.org/">React.js</a></li>
+    <li><a href="https://redux.js.org/">Redux</a></li>
+    <li><a href="https://www.w3.org/Style/CSS/Overview.en.html">CSS</a></li>
+  </ul>
+</details>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<details>
+<summary>Server</summary>
+  <ul>
+    <li><a href="https://dashboard.render.com/">Render</a></li>
+  </ul>
+</details>
 
-### `npm run eject`
+<details>
+<summary>Database</summary>
+  <ul>
+    <li><a href="https://api-ninjas.com/">Remotive API</a></li>
+  </ul>
+</details>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Key Features <a name="key-features"></a>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Users Can a specific craft with model number**
+- **Fetch crafts From API**
+- **Users Can Search craft By model number**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🔭 Code Documentation For Non-technical People <a name="Documentation"></a>
 
-## Learn More
+Feel free to read the [documentation](https://github.com/emmanuelsteven/AirCrafts) if you really want to understand the code
+## 🚀 Live Demo <a name="live-demo"></a>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- [Live Demo Link](https://aircraft-manufacturers.onrender.com/)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- [Presentation Video Link](https://www.loom.com/share/d3e1b1a02d2f4bff92994807bd661c3b)
 
-### Code Splitting
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 💻 Getting Started <a name="getting-started"></a>
 
-### Analyzing the Bundle Size
+To get a local copy up and running, follow these steps.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Prerequisites
 
-### Making a Progressive Web App
+In order to run this project you need:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- [ ] git version 2.38.x
+- [ ] node.js version > 12.x
+- [ ] IDE
+- [ ] Browser (chrome, firefox, edge, safari)
 
-### Advanced Configuration
+### Setup
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Clone this repository to your desired folder:
+
+```sh
+  cd my-folder
+  git clone git@github.com:emmanuelsteven/Aircraft.git
+```
+
+### Install
+
+Install this project with:
+
+
+```sh
+  cd Aircraft
+  npm install
+  yam install
+```
+
+### Usage
+
+To run the project, execute the following command:
+
+```sh
+  npm start
+```
+
+### Run tests
+
+To run tests, run the following command:
+
+```sh
+  npx npx eslint "**/*.{js,jsx}"
+```
 
 ### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+You can deploy this project using:
 
-### `npm run build` fails to minify
+```sh
+  https://dashboard.render.com/
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 👥 Authors <a name="authors"></a>
+
+👤 **Collins Bawa**
+
+- GitHub: [@emmanuelsteven](https://github.com/emmanuelsteven)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🔭 Future Features <a name="future-features"></a>
+
+- [ ] **Add More manufacturers**
+- [ ] **Add Logo**
+- [ ] **Add Footer**
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🤝 Contributing <a name="contributing"></a>
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](https://github.com/emmanuelsteven/AirCrafts/issues).
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## ⭐️ Show your support <a name="support"></a>
+
+Dear Viewers!
+
+I'm excited to be working on this project and I would be grateful for your support! By supporting this project, you are not only helping me, but you are also contributing to something meaningful that can make a difference. Your support will give me the motivation and resources necessary to keep moving forward with this project and to ensure its success. So, whether it's through your kind words, by giving this project a star, your financial support, or simply by spreading the word, your support means everything to me. Thank you in advance for your support, and I can't wait to share with you the amazing things we will achieve together.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🙏 Acknowledgments <a name="acknowledgements"></a>
+
+I want to express my deep appreciation to the Microverse full-stack curriculum for their constant inspiration and invaluable guidance during this journey. I am also extremely grateful to https://api-ninjas.com/ for generously granting me access to their exceptional API, which allowed me to bring this incredible project to fruition. Additionally, I would like to recognize Nelson Sakwa at https://www.behance.net/gallery/31579789/Ballhead-App-(Free-PSDs) for providing the fantastic design guidelines that I utilized to create the user interface for this project.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 📝 License <a name="license"></a>
+
+This project is [MIT](https://github.com/emmanuelsteven/AirCrafts/blob/dev/LICENSE) licensed.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>

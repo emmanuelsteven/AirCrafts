@@ -187,4 +187,8 @@
   .search-icon-container {
     width: -1px;
   }
+  .search-input::placeholder {
+    font-size: 1rem;
+    padding-left: 6px;
+  }
 }
