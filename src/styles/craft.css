@@ -171,7 +171,7 @@
   }
 
   .search-input {
-    padding: 0.6rem 0;
+    padding: -0.2rem 0;
     font-size: 14px;
     height: 33px;
   }
