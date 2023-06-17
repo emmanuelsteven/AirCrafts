@@ -1,46 +1,49 @@
 import React from 'react';
-import { render } from '@testing-library/react';
-import { Provider } from 'react-redux';
-import { MemoryRouter } from 'react-router-dom';
-import configureStore from 'redux-mock-store';
-import CraftDescription from '../component/CraftDetails';
+import { render, screen, fireEvent } from '@testing-library/react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import CraftsDis from '../component/craftsDis';
+import { getCrafts, findCraftDetails } from '../Redux/crafts/craftsSlice';
+import '@testing-library/jest-dom/extend-expect';
 
-const mockStore = configureStore([]);
+jest.mock('react-redux');
+jest.mock('react-router-dom');
 
-describe('CraftDescription', () => {
-  it('renders craft details correctly', () => {
-    const mockCrafts = [
-      {
-        population: 1,
-        details: true,
-        manufacturer: 'Airbus',
-        model: 'A380',
-        engine_type: 'Type A',
-        max_speed_knots: 500,
-        ceiling_ft: 40000,
-        gross_weight_lbs: 800000,
-        height_ft: 50,
-        length_ft: 250,
-        wing_span_ft: 200,
-        range_nautical_miles: 1000,
-      },
-      // Add more craft objects for additional tests if needed
-    ];
+describe('CraftsDis', () => {
+  const mockCrafts = [
+    { manufacturer: 'Airbus', model: 'A380', population: 1 },
+    { manufacturer: 'Boeing', model: '737 Max', population: 2 },
+  ];
 
-    const store = mockStore({
-      crafts: { craft: mockCrafts },
+  beforeEach(() => {
+    useDispatch.mockReturnValue(jest.fn());
+    useSelector.mockReturnValue({
+      craft: mockCrafts,
+      isLoading: false,
     });
+    useNavigate.mockReturnValue(jest.fn());
+  });
 
-    const {} = render(
-      <Provider store={store}>
-        <MemoryRouter>
-          <CraftDescription />
-        </MemoryRouter>
-      </Provider>,
-    );
+  test('renders the component', () => {
+    render(<CraftsDis />);
 
-    // Assert the craft details and images
+    expect(screen.queryByText('Loading...')).toBeNull();
 
-    // ...
+    expect(screen.getByText('Airbus')).toBeInTheDocument();
+    expect(screen.getByText('Boeing')).toBeInTheDocument();
+  });
+
+  test('handles craft search', () => {
+    const mockGetCrafts = jest.fn();
+    useDispatch.mockReturnValue(mockGetCrafts);
+
+    render(<CraftsDis />);
+
+    const searchInput = screen.getByPlaceholderText('Search by craft model no:');
+
+    fireEvent.change(searchInput, { target: { value: 'A380' } });
+
+    expect(mockGetCrafts).toHaveBeenCalled();
+    expect(searchInput.value).toBe('A380');
   });
 });
